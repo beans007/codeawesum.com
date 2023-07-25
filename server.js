@@ -11,6 +11,7 @@ const app = express();
 app.use(express.static("./static/home"));
 app.use(bodyParser.json());
 app.use(morgan('dev'));
+const casBudget = require("./casModules/casBudget.js");
 
 // server objest for storing server stuff
 var serverobj = {
@@ -35,6 +36,7 @@ if (serverobj.firstStart) {
   app.use('/server', casServer);
   app.use('/db', casDb);
   app.use('/register', casLogin)
+  app.use('/budget', casBudget)
 
  
 // I am listening
